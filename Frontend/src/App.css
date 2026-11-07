@@ -1,0 +1,27 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&&family=Doto:wght@100..900&family=Oswald:wght@200..700&family=Geo:ital@0;1&family=Patrick+Hand+SC&family=Sedan+SC&family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+
+   --color-page: #070A13;
+  --color-section: #0C0F1D;
+  --color-card: #0F1322;
+  --color-border: #1B2030;
+  --color-primary: #6C5CE7;
+  --color-text: #F5F5F5;
+  --color-muted: #7180A0;
+
+
+
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+  --font-Saira:"Saira Condensed",sans-sarif;
+  --font-Doto:"Doto",monospace;
+  --font-geo:"Geo",monospace;
+  --font-patrick:"Patrick Hand",sans-serif;
+  --font-sedan:"Sedan Sc",sans;
+  --font-Alumni:"Alumni Sans sc",sans-serif;
+}

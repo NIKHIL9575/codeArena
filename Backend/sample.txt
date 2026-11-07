@@ -1,0 +1,28 @@
+//url for route
+
+app.post("/api/auth/signup",userCreate);
+app.post("/api/auth/login",userCheck);
+app.get("/api/profile/:username",userProfile);
+app.patch("/api/profile/:username",editUser);
+
+app.get("/api/leaderboard",getUsers);
+app.get("/api/problems",getProblems);
+app.get("/api/problems/:id",currentProblem)
+app.get("/api/users",getOtherUsers);//it is for showing other user profile ,when one user click on other user profile in leaderboard
+app.post("/api/submissions",problemSubmitted);
+app.get("/api/submissions/:userId",userSubmissions)
+
+
+
+─ profileRoutes.js
+│   ├── problemRoutes.js
+│   ├── submissionRoutes.js
+│   └── leaderboardRoutes.js
+
+
+─ controllers/
+│   ├── authController.js
+│   ├── profileController.js
+│   ├── problemController.js
+│   ├── submissionController.js
+│   └── leaderboardController.js
