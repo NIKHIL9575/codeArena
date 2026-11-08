@@ -8,6 +8,7 @@ import bronze from '../assets/bronze.png'
 import codeArena from '../assets/codeArena.png'
 import axios from 'axios';
 import { NavLink } from 'react-router-dom'
+import API from "../config/api"
 
 const Leaderboard = () => {
 
@@ -19,7 +20,9 @@ const Leaderboard = () => {
   useEffect(() => {
     const leaderboard = async () => {
       try {
-        const response = await axios.get("/api/leaderboard");
+        const response = await axios.get(`${API}/api/leaderboard`, {
+          withCredentials: true
+        });
 
         console.log(response.data);
         setData(response.data.result || []);

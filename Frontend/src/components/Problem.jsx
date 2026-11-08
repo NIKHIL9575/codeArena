@@ -8,6 +8,7 @@ import Hint from '../smallcomponents/Hint';
 import {motion} from 'framer-motion';
 import Editor from '../smallcomponents/Editor';
 import axios from "axios";
+import API from "../config/api"
 
 
 
@@ -42,7 +43,9 @@ useEffect(() => {
 
   const fetchProblem = async () => {
     try {
-      const res = await fetch(`/api/problems/${id}`);
+      const res = await fetch(`${API}/api/problems/${id}`, {
+        credentials: "include"
+      });
       const data = await res.json();
 
       if (!res.ok) {
