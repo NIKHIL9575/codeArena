@@ -10,6 +10,7 @@ import { NavLink,useParams } from 'react-router-dom'
 import { useSelector } from "react-redux";
 import axios from "axios";
 import codeArena from '../assets/codeArena.png';
+import API from '../config/api'
 
 const Profile = () => {
 
@@ -24,7 +25,7 @@ const Profile = () => {
     const fetchOtherUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/users/${paramId}`,
+          `${API}/api/users/${paramId}`,
           { withCredentials: true }
         );
 

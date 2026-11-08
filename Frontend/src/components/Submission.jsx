@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useLocation } from "react-router-dom";
 import skeleton from '../assets/skeleton.png';
 import wrong from '../assets/wrong.png'
+import API from '../config/api';
 
 const Submission = () => {
 
@@ -18,7 +19,7 @@ const Submission = () => {
   useEffect(() => {
     const submitCode = async () => {
       try {
-        const response = await axios.post("/api/submissions/submit", {
+        const response = await axios.post(`${API}/api/submissions/submit`, {
           problemId,
           code,
           language

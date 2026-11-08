@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import API from "../config/api";
 
 // Fetch problems from backend
 export const fetchProblems = createAsyncThunk(
   "problems/fetchProblems",
   async () => {
-    const response = await fetch("http://localhost:8000/api/problems");
+    const response = await fetch(`${API}/api/problems`);
 
     if (!response.ok) {
       throw new Error("Failed to fetch problems");

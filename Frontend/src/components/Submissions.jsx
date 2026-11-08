@@ -7,6 +7,7 @@ import {
 import { motion } from "framer-motion";
 import axios from "axios";
 import submissionsChar from "../assets/submissionsChar.png";
+import API from "../config/api";
 
 const Submissions = () => {
   const [search, setSearch] = useState("");
@@ -28,7 +29,7 @@ const Submissions = () => {
         setLoading(true);
 
         const response = await axios.get(
-          "http://localhost:8000/api/submissions",
+          `${API}/api/submissions`,
           { withCredentials: true }
         );
         

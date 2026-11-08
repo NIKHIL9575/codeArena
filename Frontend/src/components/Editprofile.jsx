@@ -7,6 +7,7 @@ import codeArena from '../assets/codeArena.png'
 import { useDispatch,useSelector } from "react-redux";
 import { fetchProfile } from '../Redux/profileSlice';
 import axios from "axios";
+import API from "../config/api";
 
 
 
@@ -60,7 +61,7 @@ const Editprofile = () => {
       }
 
       const response = await axios.patch(
-        "http://localhost:8000/api/profile/edit",
+        `${API}/api/profile/edit`,
         formData,
         { withCredentials: true }
       );

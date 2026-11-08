@@ -1,12 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import API from "../config/api";
+
 
 export const fetchProfile = createAsyncThunk(
   "profile/fetchProfile",
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/profile",
+        `${API}/api/profile`,
         {
           withCredentials: true,
         }

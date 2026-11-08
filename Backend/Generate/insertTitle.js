@@ -7,7 +7,7 @@ const titles = require("../Data/generated_titles.json");
 
 async function Insert() {
     try {
-        await Mongodb("mongodb://localhost:27017/Coding_platform");
+        await Mongodb(process.env.MONGO_URI);
 
         // Prevent accidental duplicate insertion
         const count = await Problem.countDocuments();

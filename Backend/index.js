@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("dns").setDefaultResultOrder("ipv4first");
 
 const express=require("express");
 const app=express();
@@ -10,21 +11,19 @@ const problemRoutes = require("./Routes/problemRoutes");
 const submissionRoutes = require("./Routes/submissionRoutes");
 const leaderboardRoutes = require("./Routes/leaderboardRoutes");
 const  otherUserRoutes= require("./Routes/otherUserRoutes");
-const port=8000;
+const PORT = process.env.PORT || 8000;
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 
-Mongodb('mongodb://localhost:27017/Coding_platform').then(()=>console.log("mongodb connected")).catch((er)=>console.log("error occured",er));
+Mongodb(process.env.MONGO_URI).then(()=>console.log("mongodb connected")).catch((er)=>console.log("error occured",er));
 
 app.use(cookieParser());
 
-app.use(cors(
-  {
-    origin: "http://localhost:5173",
-    credentials: true,
-  }
-));
+app.use(cors({
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
+  credentials: true,
+}));
 
 app.use(express.json());
 
@@ -39,7 +38,7 @@ app.use("/api/submissions", submissionRoutes);
 app.use("/api/leaderboard", leaderboardRoutes);
 app.use("/api/users",otherUserRoutes);
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log("server is started");
 });
 

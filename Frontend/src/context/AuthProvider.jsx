@@ -3,6 +3,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { fetchProfile } from "../Redux/profileSlice";
 import { useNavigate } from "react-router-dom";
+import API from "../config/api";
 
 
 
@@ -17,7 +18,7 @@ const AuthProvider = ({ children }) => {
   const checkAuth = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/api/auth/checkAuth",
+        `${API}/api/auth/checkAuth`,
         { withCredentials: true }
       );
 
@@ -40,7 +41,7 @@ const AuthProvider = ({ children }) => {
 
 
       const response = await axios.post(
-        "http://localhost:8000/api/auth/logout",
+        `${API}/api/auth/logout`,
         {},
         { withCredentials: true }
       );

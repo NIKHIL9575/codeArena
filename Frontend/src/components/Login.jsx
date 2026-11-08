@@ -12,6 +12,8 @@ import VerifyEmail from "../smallcomponents/VerifyEmail"
 import { AuthContext } from '../context/AuthProvider';
 import { useDispatch } from "react-redux";
 import { fetchProfile } from "../Redux/profileSlice";
+import API from "../config/api";
+
 
 
 const Login = () => {
@@ -45,7 +47,7 @@ const Login = () => {
       try {
 
         response = await axios.post(
-          "http://localhost:8000/api/auth/login",
+          `${API}/api/auth/login`,
           {
             email: data.email,
             password: data.password
@@ -68,7 +70,7 @@ const Login = () => {
       // Signup API
       try {
         const response = await axios.post(
-          "http://localhost:8000/api/auth/signup",
+          `${API}/api/auth/signup`,
           {
             displayName: data.displayName,
             email: data.email,
@@ -107,7 +109,7 @@ const Login = () => {
         
 
         const response = await axios.get(
-          "http://localhost:8000/api/auth/checkUsername",
+          `${API}/api/auth/checkUsername`,
           {
             params: { displayName: displayName.trim() }
           }
@@ -128,7 +130,7 @@ const Login = () => {
   const handleVerifyOTP = async (otp) => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/auth/verifyEmail",
+        `${API}/api/auth/verifyEmail`,
         {
           email: pendingEmail,
           otp,
@@ -156,7 +158,7 @@ const Login = () => {
   const handleResendOTP = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/auth/resendOtp",
+        `${API}/api/auth/resendOtp`,
         {
           email: pendingEmail,
         }
