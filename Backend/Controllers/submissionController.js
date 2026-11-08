@@ -1,6 +1,6 @@
 const Problem = require("../Models/problems");
 const axios = require("axios");
-const Submission = require("../models/Submission");
+const Submission = require("../Models/Submission");
 const Profile=require("../Models/Profile");
 const Leaderboard = require("../Models/Leaderboard");
 
